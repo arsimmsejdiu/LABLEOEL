@@ -1,15 +1,10 @@
 import React from 'react'
 
-interface PostCardProps {
-  title?: string
-  excert?: string
-}
-
-const PostCard = ({ title, excert }: PostCardProps) => {
+const PostCard = ({ post }: any) => {
   return (
     <div>
-      {title}
-      {excert}
+      {post.title}
+      {post.excert}
     </div>
   )
 }
