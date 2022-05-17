@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { PostCard } from '../components'
+import { PostCard, Categories, PostWidget, About } from '../components'
 
 const posts = [
   {
@@ -27,7 +27,11 @@ const Home: NextPage = () => {
           ))}
         </div>
         <div className="col-span-1 lg:col-span-4">
-          <div className="relative top-8 lg:sticky"></div>
+          <div className="relative top-8 lg:sticky">
+            <About />
+            <PostWidget />
+            <Categories />
+          </div>
         </div>
       </div>
     </div>
