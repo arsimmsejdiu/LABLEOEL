@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes';
 import { Layout } from '../components';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Layout>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { grpahCMSImageLoader } from '../utils/utils';
 import { getSimilarPosts, getRecentPosts } from '../services';
 
-const PostWidget = () => {
+const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {

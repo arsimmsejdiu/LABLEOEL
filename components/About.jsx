@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = ({ post }: any) => {
+const About = ({ post }) => {
   // console.log(post)
   return (
     <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
