@@ -14,7 +14,7 @@ const Home: NextPage = ({ posts }: any) => {
       </Head>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
-          {posts.map((post: any) => <PostCard key={post.id} post={post}/>)}
+          {posts.map((post: any) => <PostCard key={post.id} post={post.node}/>)}
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 lg:sticky">
