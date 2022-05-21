@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
+import { HiMenuAlt4 } from "react-icons/hi"
 
 const categories = [
   {
@@ -39,6 +40,10 @@ const Header = () => {
               </span>
             </Link>
           ))}
+          <HiMenuAlt4
+            fontSize={28}
+            className="text-white md:hidden cursor-pointer"
+          />
         </div>
       </div>
     </div>
