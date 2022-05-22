@@ -1,24 +1,18 @@
 import React from 'react'
+import { getPostDetails, getPosts } from '../services'
 
-const About = ({ post }) => {
-  // console.log(post)
+const About = ({ author}) => {
+  console.log(author)
   return (
     <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
-      <div className="mb-8 flex w-full items-center">
-        <h1 className='flex items-center justify-center font-bold text-xl'>LABLEOEL</h1>
-        {/* <div className="mr-8 hidden items-center justify-center md:flex lg:mb-0 lg:w-auto">
-          <img
-            alt={post.author.name}
-            height="30px"
-            width="30px"
-            className="rounded-full align-middle"
-            src={post.author.photo.url}
-          />
-          <p className="ml-2 inline align-middle text-lg font-medium text-gray-700">
-            {post.author.name}
-          </p>
-        </div> */}
-      </div>
+      <div className="mb-8 flex-col w-full items-center">
+        <h1 className="flex items-center justify-center text-xl font-bold">
+        {author.name}
+        </h1>
+        <p className="mb-8 text-center text-lg font-normal text-gray-700">
+          {author.bio}
+        </p>
+      </div> 
     </div>
   )
 }
