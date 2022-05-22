@@ -7,7 +7,6 @@ import {
   Author,
   Comments,
   CommentsForm,
-  About,
 } from '../../components'
 import { AdjacentPosts } from '../../sections';
 
@@ -24,7 +23,6 @@ const PostDetails = ({ post }) => {
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 lg:sticky">
-            <About author={post.author}/>
             <PostWidget
               post={post.slug}
               categories={post.categories.map((category) => category.slug)}
@@ -39,19 +37,22 @@ const PostDetails = ({ post }) => {
 
 export default PostDetails
 
+// Fetch data at build time
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug)
+  const data = await getPostDetails(params.slug);
   return {
     props: {
       post: data,
     },
-  }
+  };
 }
 
+// Specify dynamic routes to pre-render pages based on data.
+// The HTML is generated at build time and will be reused on each request.
 export async function getStaticPaths() {
-  const posts = await getPosts()
+  const posts = await getPosts();
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: true,
-  }
+  };
 }
