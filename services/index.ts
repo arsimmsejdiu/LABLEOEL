@@ -38,6 +38,25 @@ export const getPosts = async () => {
   return result.postsConnection.edges
 }
 
+export const getAuthors = async () => {
+  const query = gql`
+    query MyQuery {
+      authors {
+        id
+        name
+        photo {
+          id
+          fileName
+        }
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query)
+  console.log(result.authors)
+  return result.authors
+}
+
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {

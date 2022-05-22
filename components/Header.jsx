@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { HiMenuAlt4 } from 'react-icons/hi'
 import { getCategories } from '../services'
 
 const Header = () => {
