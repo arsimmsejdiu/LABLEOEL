@@ -44,6 +44,7 @@ export const getAuthors = async () => {
       authors {
         id
         name
+        bio
         photo {
           id
           fileName
@@ -53,7 +54,6 @@ export const getAuthors = async () => {
   `
 
   const result = await request(graphqlAPI, query)
-  console.log(result.authors)
   return result.authors
 }
 

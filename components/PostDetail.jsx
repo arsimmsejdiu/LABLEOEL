@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import Head from 'next/head'
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -61,6 +62,9 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <div className="mb-8 rounded-lg bg-white pb-12 shadow-lg lg:p-8">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img

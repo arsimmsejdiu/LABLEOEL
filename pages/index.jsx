@@ -1,9 +1,10 @@
 import { FeaturedPosts } from '../sections'
 import { PostCard, Categories, PostWidget, About } from '../components'
-import {  getPosts } from '../services'
+import { getAuthors, getPosts } from '../services'
 import Head from 'next/head'
 
-export default function Home({ posts }) {
+export default function Home({ posts, author }) {
+  console.log(author)
   return (
     <div className="container mx-auto mb-8 px-10">
       <Head>
@@ -18,7 +19,11 @@ export default function Home({ posts }) {
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 lg:sticky">
-            <About />
+            <About
+              author={author}
+              name="LABLEOEL"
+              bio="Innovative Senior DevOps Engineer with a strong Linux background and 15+ years of experience designing, implementing, and managing cutting-edge deployment automation of cloud resources."
+            />
             <PostWidget />
             <Categories />
           </div>
@@ -31,8 +36,8 @@ export default function Home({ posts }) {
 // Fetch data at build time
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
+  const author = (await getAuthors()) || []
   return {
-    props: { posts },
+    props: { posts, author },
   }
 }
-
