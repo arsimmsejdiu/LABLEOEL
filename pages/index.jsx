@@ -1,9 +1,23 @@
 import { FeaturedPosts } from '../sections'
 import { PostCard, Categories, PostWidget, About } from '../components'
-import { getPosts } from '../services'
+import { getPosts, getAuthors } from '../services'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
+
 
 export default function Home({ posts }) {
+  const [authors, setAuthors] = useState([])
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    getAuthors().then((newAuthor) => {
+      setAuthors(newAuthor)
+    })
+    setMounted(true)
+  }, [])
+
+  console.log(authors);
+
   return (
     <div className="container mx-auto mb-8 px-10">
       <Head>
@@ -19,8 +33,8 @@ export default function Home({ posts }) {
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 lg:sticky">
             <About
-              name="LABLEOEL"
-              bio="Innovative Senior DevOps Engineer with a strong Linux background and 15+ years of experience designing, implementing, and managing cutting-edge deployment automation of cloud resources."
+              name={authors.name}
+              bio={authors.bio}
             />
             <PostWidget />
             <Categories />
