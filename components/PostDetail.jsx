@@ -49,7 +49,7 @@ const PostDetail = ({ post }) => {
         )
         case 'code-block':
         return (
-          <code key={index} className="w-screen dark:bg-gray-300">
+          <code key={index} className="w-96 dark:bg-gray-300">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
