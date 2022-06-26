@@ -21,9 +21,17 @@ const PostDetail = ({ post }) => {
     }
 
     switch (type) {
+      case 'heading-one':
+        return (
+          <h3 key={index} className="mb-4 text-2xl font-semibold">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h3>
+        )
       case 'heading-three':
         return (
-          <h3 key={index} className="mb-4 text-xl font-semibold">
+          <h3 key={index} className="mb-5 text-xl font-semibold">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -31,7 +39,7 @@ const PostDetail = ({ post }) => {
         )
       case 'paragraph':
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 mt-8">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -59,13 +67,13 @@ const PostDetail = ({ post }) => {
         return modifiedText
     }
   }
-
+console.log(post.content.raw.children)
   return (
     <>
       <Head>
         <title>{post.title}</title>
       </Head>
-      <div className="mb-8 rounded-lg bg-white pb-12 shadow-lg lg:p-8">
+      <div className="mb-8 rounded-lg bg-white dark:bg-gray-700 pb-12 shadow-lg lg:p-8">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}

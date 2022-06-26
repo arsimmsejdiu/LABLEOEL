@@ -4,12 +4,12 @@ import { SocialIcon } from 'react-social-icons';
 
 const About = ({ name, bio }) => {
   return (
-    <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
+    <div className="mb-8 rounded-lg bg-white dark:bg-gray-700 dark:text-gray-400 p-8 pb-12 shadow-lg">
       <div className="flex-col w-full items-center">
         <h1 className="flex items-center justify-center text-xl font-bold border-b pb-4 mb-5">
         { name }
         </h1>
-        <p className="mb-8 text-center text-lg font-normal text-gray-700">
+        <p className="mb-8 text-center text-lg font-normal text-gray-700 dark:text-gray-400">
         { bio }
         </p>
         <div className='space-x-3 flex items-center justify-center'>

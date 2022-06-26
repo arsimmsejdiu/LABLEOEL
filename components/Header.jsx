@@ -60,10 +60,10 @@ const Header = () => {
 
   return (
     <div className="container mx-auto mb-8 px-8">
-      <div className="inline-block w-full border-b border-blue-400 py-5">
+      <div className="inline-block w-full border-b border-blue-400 py-5 dark:border-gray-500">
         <div className="block md:float-left">
           <Link href="/">
-            <span className="cursor-pointer text-2xl font-bold text-white">
+            <span className="cursor-pointer text-2xl font-bold text-white dark:text-gray-400">
               LABLEOEL
             </span>
           </Link>
@@ -72,7 +72,7 @@ const Header = () => {
           <div className='flex items-center justify-center space-x-5 float-right'>
             {categories.map((category, index) => (
             <Link key={index} href={`/category/${category.slug}`}>
-              <span className="mt-2 ml-4 cursor-pointer align-middle font-semibold text-white transition duration-75 hover:text-pink-500 hover:underline md:float-right">
+              <span className="mt-2 ml-4 cursor-pointer align-middle font-semibold dark:text-gray-400 text-white transition duration-75 hover:text-pink-500 hover:underline md:float-right">
                 {category.name}
               </span>
               
