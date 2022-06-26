@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 import Head from 'next/head'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -45,6 +47,14 @@ const PostDetail = ({ post }) => {
             ))}
           </p>
         )
+        case 'code-block':
+        return (
+          <code key={index} className="w-screen dark:bg-gray-300">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </code>
+        )
       case 'heading-four':
         return (
           <h4 key={index} className="text-md mb-4 font-semibold">
@@ -55,13 +65,16 @@ const PostDetail = ({ post }) => {
         )
       case 'image':
         return (
-          <img
+          <Zoom>
+            <img
             key={index}
             alt={obj.title}
             height={obj.height}
             width={obj.width}
             src={obj.src}
           />
+          </Zoom>
+          
         )
       default:
         return modifiedText
